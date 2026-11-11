@@ -1,1 +1,0 @@
-# wony_info
