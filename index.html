@@ -1,0 +1,536 @@
+from flask import Flask, render_template_string
+
+app = Flask(__name__)
+
+home_html = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wony's Info</title>
+    <style>
+       
+
+
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color:#fcfaf7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background:#FFFFFF;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 320px;
+        }
+        
+        h1 { 
+            color:#FFB7C5 ; 
+            font-size: 16px; 
+            white-space: nowrap; 
+            margin-bottom: 10px;
+        }
+        .home-btn-left {
+            position: ;
+            center: 70px;
+            left: 25px;
+            padding: 10px 24px;
+            background-color: #212529;
+            color:#FFB7C5;
+            text-decoration:none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+    
+        p { 
+            color:#FFB7C5; 
+            font-size: 10px; 
+            margin-bottom: 20px; 
+        }
+      
+    </style>
+</head>
+<body>
+    <div class="card">
+        
+       
+       
+        
+        <h1>°.*ɛꜱ ࿙ 𝚠ᎧᏁᎩ'Ꮥ ᎥᏁᎦᎧ ࿙ ɛꜱ ⋆.°</h1>
+        <p>૮₍ ´ ꒳ `₎ა</p>
+        <a href="/next9" class="home-btn-left">ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧</a>
+       
+        
+        
+    </div>
+</body>
+</html>
+"""
+
+page2_html = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction - Dua Fatima</title>
+    <style>
+        body {
+            background-color: #fcfaf7;
+            color: #212529;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            padding-bottom: 100px;
+        }
+        .content-container {
+            background-color: #ffffff;
+            max-width: 650px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        .header-symbol {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #FFB7C5;
+        }
+        .intro-title {
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #FFB7C5;
+            margin-bottom: 10px;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background-color: #dee2e6;
+            margin: 20px 0;
+        }
+        ol {
+            text-align: left;
+            line-height: 1.8;
+            padding-left: 20px;
+        }
+        ol li {
+            margin-bottom: 8px;
+            color: #212529;
+            font-size: 15px;
+        }
+        .footer-symbol {
+            font-size: 22px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #FFB7C5;
+        }
+        .end-heading {
+            text-align: right;
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-right: 50px;
+            color: #FFB7C5;
+        }
+        .home-btn-left {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            padding: 10px 24px;
+            background-color: #212529;
+            color: #FFB7C5;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+        .home-btn-left:hover {
+            background-color: #c9184a;
+        }
+        .next-btn-right {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            padding: 10px 24px;
+            background-color: #212529;
+            color: #FFB7C5;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+        .next-btn-right:hover {
+            background-color: #FFB7C5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content-container">
+        <div class="header-symbol">ฅ ^&gt;ω&lt;^ ฅ</div>
+        <div class="intro-title">INTRODUCTION</div>
+        <hr>
+        
+        <ol>
+            <li><strong>Name / Name:</strong> Dua Fatima / Wony</li>
+            <li><strong>Birthdate:</strong> 24th April 2010</li>
+            <li><strong>Zodiac sign:</strong> Taurus</li>
+            <li><strong>MBTI:</strong> INTP</li>
+            <li><strong>Fav animal(s):</strong> Cat, Rabbit, Fox</li>
+            <li><strong>Fav food(s):</strong> Biryani, Nihari</li>
+            <li><strong>Fav sub:</strong> Physics, Math</li>
+            <li><strong>Fav dessert(s):</strong> Ras malai, Cookies, ice cream</li>
+            <li><strong>Fav sports:</strong> Badminton, Cricket</li>
+            <li><strong>Fav colour(s):</strong> Cherry red, charcol black, brown oak</li>
+            <li><strong>Fav anime(s):</strong> The apothecary diaries, My hero academia</li>
+            <li><strong>Fav anime character(s):</strong> Shoto Todoroki, Marin Kitagawa, Arisu Sakayanagi, Izana Kurokawa, Kurumi Tokisaki</li>
+            <li><strong>Fav book(s):</strong> Once upon a broken heart, The inheritance games, The cruel prince</li>
+            <li><strong>Fav book character(s):</strong> Jacks, Jude, Cardan, Gibsie, Kenji, Jameson, Avery</li>
+            <li><strong>Fav kpop groups:</strong> Blackpink, Meovv, IVE</li>
+            <li><strong>Fav kpop member idol(s):</strong> Enami Asa, Jang Wonyoung, Narin, Anna, Heesung</li>
+            <li><strong>Colour that represents her:</strong> Red or Gray</li>
+            <li><strong>Animal that represents her:</strong> Rabbit or Fox</li>
+        </ol>
+
+        <hr>
+        <div class="footer-symbol">ᨳ𐔌՞҂ ˕ ֊՞𐦯ᜊ</div>
+        
+
+    <a href="/next2" class="home-btn-left">Home &larr;</a>
+    <a href="/next4" class="next-btn-right">Next Page &rarr;</a>
+
+</body>
+</html>
+"""
+page3_html="""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction - Dua Fatima</title>
+    <style>
+        body {
+            background-color: #fcfaf7;
+            color: #212529;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            padding-bottom: 100px;
+        }
+        .content-container {
+            background-color: #ffffff;
+            max-width: 650px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        .header-symbol {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #FFB7C5;
+        }
+        .intro-title {
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color:#FFB7C5;
+            margin:10px;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background-color: #dee2e6;
+            margin: 20px 0;
+        }
+        ol {
+            text-align: left;
+            line-height: 1.8;
+            padding-left: 20px;
+        }
+        ol li {
+            margin-bottom: 8px;
+            color: #212529;
+            font-size: 15px;
+        }
+        .footer-symbol {
+            font-size: 22px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #FFB7C5;
+        }
+        .end-heading {
+            text-align: right;
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-right: 50px;
+            color: #FFB7C5;
+        }
+        .home-btn-left {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            padding: 10px 24px;
+            background-color: #212529;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+        .home-btn-left:hover {
+            background-color: #FFB7C5;
+        }
+        .next-btn-right {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            padding: 10px 24px;
+            background-color: #212529;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+        .next-btn-right:hover {
+            background-color: #FFB7C5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content-container">
+        <div class="header-symbol">ᓬ(ᵔ⤙ᵔ๑)ᕒ</div>
+        <div class="intro-title">FUN FACT ABOUT HER</div>
+        <hr>
+        
+        <ol>
+            <li>she prefers chai over coffee.</li>
+            <li>she is 5'6-5'7 (not sure).</li>
+            <li>she LOVES scrolling on Pinterest, Instagram, and YT.</li>
+            <li>she loves seeing different fit styles (that's practically her hobby atp).</li>
+            <li>she loves watching vlogs, specifically of moonight, em iffy, simply misha, and stay with cotton.</li>
+            <li>she is either sleeping, eating, scrolling, or talking to friends, but never studying.</li>
+            <li>she wants to cook/bake but fails everytime so now she has accepeted her fate.</li>
+            <li>her first MBTI result was ENTJ.</li>
+            <li>she's as lazy as sloth.</li>
+            <li>she is a singer, but you wouldn't be a big fan.</li>
+            <li>she loves her country (is that even a funfact?).</li>
+            <li>she can speak 3 languages.</li>
+            <li>she is a planner for nothing.</li>
+            <li>seeker for desi songs? hell yea!</li>
+            <li>um, she's cool (?)</li>
+            <li>she owns a cat naming "Percy" and owned a cat naming "Kelly".</li>
+            <li>she is BI.</li>
+            <li>she speaks while sleeping (such a flex, huh?)</li>
+            <li>she lovessssssss rain</li>
+            <li>~Strive not to be a success, but rather to be of value~</li><div 
+        </ol>
+
+        <hr>
+        <div class="footer-symbol">₍⑅ᐢ..ᐢ₎</div>
+        <a href="/next9" class="home-btn-left">Back</a>
+    <a href="/next8" class="next-btn-right">Next Page &rarr;</a>
+
+
+    
+</body>
+</html>
+"""
+page4_html="""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENDING</title>
+    <style>
+        body {
+            background-color: #fcfaf7;
+            color: #212529;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            padding-bottom: 100px;
+        }
+        .content-container {
+            background-color: #ffffff;
+            max-width: 650px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        .header-symbol {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #FFB7C5;
+        }
+        .intro-title {
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #FFB7C5;
+            margin-bottom: 10px;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background-color: #dee2e6;
+            margin: 20px 0;
+        }
+        ol {
+            text-align: left;
+            line-height: 1.8;
+            padding-left: 20px;
+        }
+        ol li {
+            margin-bottom: 8px;
+            color: #212529;
+            font-size: 15px;
+        }
+        .footer-symbol {
+            font-size: 22px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #FFB7C5;
+        }
+        .end-heading {
+            text-align: right;
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-right: 50px;
+            color: #FFB7C5;
+        }
+        .home-btn-left {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            padding: 10px 24px;
+            background-color: #212529;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+        .home-btn-left:hover {
+            background-color: #FFB7C5;
+        }
+        .thank-you-heading {
+            text-align: center;
+            font-family:playfair-display;
+            color: #FFB7C5;
+            margin-top: 50px;
+        }
+        h2{
+        font-size:20px;
+        color:#FFB7C5
+        }
+        .next-btn-right {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            padding: 10px 24px;
+            background-color: #212529;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+        .next-btn-right:hover {
+            background-color: #FFB7C5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content-container">
+        <div class="header-symbol">(✿ᴗ͈ˬᴗ͈)⁾⁾</div>
+        <h1 class="thank-you-heading">
+         Thank You! 
+    </h1>
+
+        <hr>
+        
+      
+    <h2>MY SOCIAL LINKS</h2>
+    <a href="https://www.instagram.com/wony_hee_89" target="_blank" class="btn">Instagram</a>
+    <a href="https://www.pintrest.com/wony_hee_89" target="_blank" class="btn">pintrest</a>
+    <a href="https://www.snapchat.com/wonyhee" target="_blank" class="btn">Snapchat</a>
+ 
+</div>
+
+        <hr>
+        <div class="footer-symbol">THE END</div>
+        <a href="/next9" class="home-btn-left">Back</a>
+    
+
+
+    
+</body>
+</html>
+"""
+
+@app.route('/')
+def home():
+    return render_template_string(home_html)
+@app.route('/next2')
+def again_home():
+       return render_template_string(home_html)
+
+@app.route('/next8')
+def next_page4():
+    return render_template_string(page4_html)       
+@app.route('/next9')
+def next_page2():
+    return render_template_string(page2_html)
+@app.route('/next4')
+def next_page3():
+       return render_template_string(page3_html)
+@app.route('/next')
+def next_page():
+    return render_template_string(page2_html)
+
+if __name__ == '__main__':
+    app.run(debug=True)
